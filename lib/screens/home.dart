@@ -20,38 +20,28 @@ class _HomePageState extends State<HomePage> {
       children: [
         _crearLogo(),
         RoundedButtonWidget(
-          buttonText: 'Abrir Portal de Autogestión', 
-          width: 300, 
-          onpressed: ()async {
-            await launch('https://pau.osde.com.ar/');
-          }
-        ),
+            buttonText: 'Abrir Portal de Autogestión',
+            width: 300,
+            onpressed: () async {
+              await launch('https://pau.osde.com.ar/');
+            }),
         RoundedButtonWidget(
-          buttonText: 'Enviar WhatsApp a MDA', 
-          width: 300, 
-          onpressed: () async{
-            await launch('https://api.whatsapp.com/send?phone=5491145105500');
-          }
-        ),
+            buttonText: 'Enviar WhatsApp a MDA',
+            width: 300,
+            onpressed: () async {
+              await launch('https://api.whatsapp.com/send?phone=5491145105500');
+            }),
         RoundedButtonWidget(
-          buttonText: 'Llamar a MDA', 
-          width: 300, 
-          onpressed:()=>_openTel
-        ),
-
-        ],
+            buttonText: 'Llamar a MDA',
+            width: 300,
+            onpressed: () async{
+              await launch('tel:01145105500');
+            }),
+      ],
     ));
   }
 }
 
-void _openTel() async {
-  const url = "tel:01145105500";
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
 
 Widget _crearLogo() {
   return const Image(
