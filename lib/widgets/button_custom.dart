@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class RoundedButtonWidget extends StatelessWidget {
-  
   final String buttonText;
   final double width;
   final Function onpressed;
+  final List<Color> color_custom;
 
   const RoundedButtonWidget({
     required this.buttonText,
     required this.width,
     required this.onpressed,
+    required this.color_custom,
   });
 
   @override
@@ -22,15 +23,11 @@ class RoundedButtonWidget extends StatelessWidget {
             BoxShadow(
                 color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
           ],
-          gradient: const LinearGradient(
+          gradient:LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             stops: [0.0, 0.5, 1.0],
-            colors: <Color>[
-              Color(0xFF0D47A1),
-              Color(0xFF1976D2),
-              Color(0xFF42A5F5),
-            ],
+            colors: color_custom
           ),
           color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(20),
